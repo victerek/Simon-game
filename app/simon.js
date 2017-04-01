@@ -1,4 +1,4 @@
-var $ = require('jquery');
+import $ from 'jquery';
 
 const Simon = {
 	sequence: [],
@@ -126,7 +126,6 @@ const Simon = {
 				$tile.removeClass('lit');
 			}, 300);
 		}
-
 	},
 
 	// we are embedding the sound file on the fly for the following benefits:
@@ -135,7 +134,6 @@ const Simon = {
 	playSound(tile) {
 		if (this.mode !== 'light-only') {
 			const audio = $('<audio autoplay></audio>');
-			audio.append(`<source src="sounds/${tile}.ogg" type="audio/ogg" />`);
 			audio.append(`<source src="sounds/${tile}.mp3" type="audio/mp3" />`);
 			$('[data-action=sound]').html(audio);
 		}
@@ -143,7 +141,7 @@ const Simon = {
 
 	randomNumber() {
 		// between 1 and 4
-		return Math.floor((Math.random()*4)+1);
+		return Math.floor((Math.random() * 4) + 1);
 	}
 };
 
